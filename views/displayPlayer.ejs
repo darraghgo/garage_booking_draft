@@ -1,0 +1,23 @@
+<html>
+    <body>
+    <div>
+
+<% include partials/header.ejs %>
+   
+    
+    <div class="table-wrapper">
+        <% if (player) {%>
+        
+        <h2> Hi <%= player.first_name %></h2>
+        <p>  Last Name :  <%= player.last_name %></p>
+        
+        
+        
+             
+        <% } else { %>
+            <p class="text-center">Not found. Go <a href="/login" >here</a> to try again.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>

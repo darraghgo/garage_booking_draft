@@ -1,0 +1,50 @@
+<html>
+    <body>
+    <div>
+
+
+<% include partials/header.ejs %>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (player) { %>
+        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="first-name">First Name</label>
+                    <input type="text" class="form-control" name="first_name" id="first-name" value="<%= player.first_name %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" class="form-control" name="last_name" id="last-name" value="<%= player.last_name %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" id="username" value="<%= player.user_name %>" required disabled title="Username cannot be edited.">
+                </div>
+                    <div class="col-75">
+      <select id="paintPrice" name="paintPrice">
+        <option value="" disabled selected>Select your paint job</option>
+        <option value="10">Red - 10</option>
+        <option value="15">Blue - 15</option>
+        <option value="20">spray - 20</option>
+        <option value="50">Major colour - 50</option>
+      </select>
+    </div>
+            </div>
+            <div class="form-row">
+               
+            
+            </div>
+            <button type="submit" class="btn btn-success float-right">Update Booking</button>
+        </form>
+        <a href='/admin'> Return to Admin</a>
+    <% } else { %>
+        <p class="text-center">Player Not Found. Go <a href="/add">here</a> to add players.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>
