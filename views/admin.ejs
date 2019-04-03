@@ -19,6 +19,7 @@
                         <th scope="col">Last Name</th>
                         <th scope="col">Booking</th>
                         <th scope="col">Number</th>
+                        <th scope="col">Date</th>
                         <th scope="col">estimate</th>
                         <th scope="col">Assigned Mechanic</th>
                         <th scope="col">Change Mechanic</th>
@@ -33,6 +34,7 @@
                             <td><%= player.last_name %></td>
                             <td><%= player.booking %></td>
                             <td><%= player.number %></td>
+                            <td><%= player.date %></td>
                             <td>€<%= player.estimate %></td>
                              <td><%= player.employee %></td>
                           
@@ -47,7 +49,8 @@
                                 <input type="submit">
                                 </form>
                                  </td>
-                            <td> <a href="/editBooking/<%= player.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit booking</a></td> 
+                            <td> <a href="/editBooking/<%= player.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit booking</a>  <a href="/bill/<%= player.id %>" target="_blank" rel="noopener" class="btn btn-md btn-info"> Bill</a></td> 
+                             
                         </tr>
                     <% }) %>
                 </tbody>
@@ -57,5 +60,7 @@
         <% } %>
     </div>
 </div>
+        
+      
 </body>
 </html>

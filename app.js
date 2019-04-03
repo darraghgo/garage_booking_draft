@@ -12,7 +12,7 @@ const port = 5000;
  const {displayPlayerPage,loginPage} = require('./routes/login');
  const {homePage,welcome,aboutPage} = require('./routes/home');
 const {bookingPage,newBooking,editBookingPage,editBooking} = require('./routes/booking');
-const {adminPage,assignPlayer} = require('./routes/admin');
+const {adminPage,assignPlayer,billPage} = require('./routes/admin');
 
 
 
@@ -50,6 +50,7 @@ app.get('/about', aboutPage);
 app.get('/home', homePage);
 app.get('/login', loginPage);
 app.get('/booking', bookingPage);
+app.get('/bill/:id', billPage);
 app.get('/login', displayPlayerPage);
 app.get('/editBooking/:id',editBookingPage);
 app.post('/login', displayPlayerPage);

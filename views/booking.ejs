@@ -1,5 +1,23 @@
 <html>
     <head>
+        
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+<script>
+$(function() {
+    $( "#datepicker" ).datepicker(
+    {
+         dateFormat: 'yy-mm-dd',
+        beforeShowDay: function(d) {
+            var day = d.getDay();
+            return [(day != 0)];
+        }
+    });
+  });
+  </script>      
+        
+        
     
     <style>
 * {
@@ -117,6 +135,15 @@ input[type=submit]:hover {
       </select>
     </div>
   </div>
+        <div class="row">
+    <div class="col-25">
+      <label for="country">Select Date</label>
+    </div>
+    <div class="col-75">
+ <input type="text" id="datepicker" name = "datepicker"  autocomplete="off">
+    </div>
+  </div>
+      
   <div class="row">
     <div class="col-25">
       <label for="subject">Description</label>

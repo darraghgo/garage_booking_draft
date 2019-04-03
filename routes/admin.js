@@ -14,9 +14,11 @@ module.exports = {
             res.render('admin.ejs', {
                 title:'Admin page',
                 players: result
+                
             });
         });
-        
+                   
+      
     },
     
   
@@ -45,11 +47,44 @@ module.exports = {
 //                
 //            });
         });
+        
+          },
     
         
+    displayDate:(req,res)=>{
+         let query = "SELECT date FROM `players` ORDER BY id ASC"; // query database to get all the players
         
         
         
-    }
+         //let playerId = req.params.id;
+                db.query(query, (err, dateResult) => {
+            if (err) {
+                res.redirect('/');
+            }
+            res.render('admin.ejs', {
+                title:'Admin page',
+                bookingDate: dateResult
+                
+            });
+        });
+                   
+      
+    },
+    
+    
+            billPage: (req, res) => {
+        let playerId = req.params.id;
+        let query = "SELECT * FROM `players` WHERE id = '" + playerId + "' ";
+        db.query(query, (err, result) => {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            res.render('bill.ejs', {
+                title: 'Bill'
+                ,player: result[0]
+                ,message: ''
+            });
+        });
+    },
     
 };

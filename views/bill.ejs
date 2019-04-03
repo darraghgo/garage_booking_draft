@@ -1,0 +1,40 @@
+<html>
+    <body>
+    <div>
+
+
+<% include partials/header.ejs %>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (player) { %>
+    
+            <h2> Invoice</h2>
+        <p>  Name  : <%= player.first_name %> <%= player.last_name %></p>
+         <p>  Booking type :  <%= player.booking %></p>
+         <p>  When :  <%= player.date %></p>
+        <p> paint job €<%= player.paintPrice %></p>
+     <p> wheel work €<%= player.wheelPrice %></p>
+    <p> Total : €<%= player.estimate %></p>
+        
+    
+
+        
+    <% } else { %>
+        <p class="text-center">No invoice Found. </p>
+    <% } %>
+</div>
+</div>
+        <br>
+               <button onclick="printBill()">Print invoice</button>
+
+<script>
+function printBill() {
+  window.print();
+}
+</script> 
+        
+</body>
+</html>

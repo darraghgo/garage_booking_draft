@@ -17,10 +17,11 @@ module.exports = {
         let first_name = req.body.first_name;
         let last_name = req.body.last_name;
         let booking = req.body.booking;
-            console.log(first_name);
+         let date = req.body.datepicker;
+            console.log(date);
  
 
-        let bookingQuery = "insert into players (first_name,last_name,booking) values ('"+ first_name +"','"+last_name +"','"+booking+"')";
+        let bookingQuery = "insert into players (first_name,last_name,booking,date) values ('"+ first_name +"','"+last_name +"','"+booking+"','"+date+"')";
 
         db.query(bookingQuery, (err, result) => {
             if (err) {
@@ -62,14 +63,14 @@ module.exports = {
         console.log(paintPrice);
        
 
-        let query = "UPDATE `players` SET `first_name` = '" + first_name + "', `last_name` = '" + last_name + "', `booking` = '" + booking + "',  `paintPrice` = '" + paintPrice + "' WHERE `players`.`id` = '" + playerId + "'";
+        let query = "UPDATE `players` SET `first_name` = '" + first_name + "', `last_name` = '" + last_name + "', `booking` = '" + booking + "',  `paintPrice` = '" + paintPrice + "' ,  `wheelPrice` = '" + wheelPrice + "',estimate = paintPrice + wheelPrice WHERE `players`.`id` = '" + playerId + "'";
         db.query(query, (err, result) => {
             if (err) {
                 return res.status(500).send(err);
             }
-            res.redirect('/');
+            res.redirect('/admin');
         });
     },
-    
+    //,'estimate'='paintPrice' + 'wheelPrice'//,'wheelPrice'="+wheelPrice+"
     
 };
